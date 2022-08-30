@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1474,1075" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1608,1075" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
@@ -67,7 +67,6 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap:VirtualizedContainerService.HintSize="634,1010" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -204,7 +203,7 @@
                                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Dispatcher" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                              <Sequence sap2010:Annotation.AnnotationText="Opening Motivational story website&#xD;&#xA;" DisplayName="Dispatcher" sap:VirtualizedContainerService.HintSize="476,1179" sap2010:WorkflowViewState.IdRef="Sequence_2">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="dt_inputtable" />
                                   <Variable x:TypeArguments="x:String" Default="Sheet1" Name="in_moralsheetname" />
@@ -212,6 +211,7 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Started the Dispatcher workflow&quot;]" />
@@ -287,7 +287,7 @@
                           <av:Size x:Key="ShapeSize">200,51</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch DisplayName="Performer-TryCatch" sap:VirtualizedContainerService.HintSize="438,1087" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch DisplayName="Performer-TryCatch" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                         <TryCatch.Try>
                           <Sequence DisplayName="Performer" sap:VirtualizedContainerService.HintSize="376,838" sap2010:WorkflowViewState.IdRef="Sequence_1">
                             <sap:WorkflowViewStateService.ViewState>
@@ -332,27 +332,13 @@
                             </ui:CommentOut>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sending mail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Sending mail.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_toaddress">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dicconfig(&quot;Toaddress&quot;).ToString" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_subject">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dicconfig(&quot;Subject&quot;).ToString+&quot; &quot;+transactionstatus.SpecificContent(&quot;Story number&quot;).ToString" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_body">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="str_body" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:Int32" x:Key="in_port">
-                                  <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(dicconfig(&quot;Port Number&quot;))" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_server">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dicconfig(&quot;Servermail&quot;).ToString" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_email">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dicconfig(&quot;Fromaddress&quot;).ToString" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="in_password">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="New System.net.NetworkCredential(String.Empty,dicpassword(&quot;Mail Information&quot;)).Password" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_toaddress">[dicconfig("Toaddress").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_subject">[dicconfig("Subject").ToString+" "+transactionstatus.SpecificContent("Story number").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_body">[str_body]</InArgument>
+                                <InArgument x:TypeArguments="x:Int32" x:Key="in_port">[CInt(dicconfig("Port Number"))]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_server">[dicconfig("Servermail").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_email">[dicconfig("Fromaddress").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_password">[New System.net.NetworkCredential(String.Empty,dicpassword("Mail Information")).Password]</InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                             <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Set Transaction Status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_1" Status="Successful" TransactionItem="[transactionstatus]">
